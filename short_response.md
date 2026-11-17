@@ -17,10 +17,10 @@ to check how it is rendered before submitting.
 
 ```py
 def requires_paid(method):
-    def wrapper(self, *args, **kwargs):
+    def wrapper(self):
         if self.status != "paid":
             raise ValueError(f"{method.__name__} needs a paid rental.")
-        return method(self, *args, **kwargs)
+        return method(self)
     return wrapper
 
 
@@ -110,10 +110,10 @@ asks for exactly this, on your own system.
 
 ```py
 def requires_paid(method):
-    def wrapper(self, *args, **kwargs):
+    def wrapper(self):
         if self.status != "paid":
             raise ValueError(f"{method.__name__} needs a paid rental.")
-        return method(self, *args, **kwargs)
+        return method(self)
     return wrapper
 
 
